@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./pages/root";
 import { Home } from "./pages/Home";
 import { Room } from "./pages/Room";
+import { AirConditioner } from "./pages/AirConditioner";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/room",
         element: <Room />,
+      },
+      {
+        path: "/air-conditioners",
+        element: <AirConditioner />,
       },
     ],
   },

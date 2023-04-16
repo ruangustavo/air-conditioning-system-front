@@ -20,15 +20,17 @@
   gap: 16px;
 }
 
-.container input {
+.container input,
+.container select {
   background-color: #f0f2f5;
   padding: 12px 16px;
   border-radius: 8px;
 }
 
-.container input::placeholder {
+.container input::placeholder,
+.container select::placeholder {
   color: #abadaf;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .container button {
