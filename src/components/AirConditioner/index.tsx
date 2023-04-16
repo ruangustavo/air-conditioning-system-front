@@ -1,5 +1,5 @@
 import { Power } from "@phosphor-icons/react";
-import styles from "./AirConditioner.module.css";
+import styles from "./styles.module.css";
 
 import { useState } from "react";
 

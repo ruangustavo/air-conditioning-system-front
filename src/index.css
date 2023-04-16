@@ -10,10 +10,20 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   height: 100vh;
-  margin: 32px 64px;
 }
 
 button,
 input {
   all: unset;
+}
+
+button,
+input,
+button::placeholder,
+input::placeholder {
+  font-family: "Inter", sans-serif;
+}
+
+main {
+  margin: 0 64px;
 }
