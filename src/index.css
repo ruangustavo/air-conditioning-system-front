@@ -15,12 +15,10 @@ body {
 button,
 input,
 select {
+  font-family: "Inter", sans-serif;
   all: unset;
 }
 
-button,
-input,
-select,
 button::placeholder,
 input::placeholder {
   font-family: "Inter", sans-serif;
