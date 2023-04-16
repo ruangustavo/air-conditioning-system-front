@@ -1,13 +1,20 @@
 import styles from "./styles.module.css";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
     <header className={styles.header}>
-      <h1>Projeto IOT</h1>
+      <h1>
+        <Link to="/">Projeto IOT</Link>
+      </h1>
       <nav>
         <ul>
-          <li>Ar-condicionados</li>
-          <li>Salas</li>
+          <li>
+            <Link to="/room">Salas</Link>
+          </li>
+          <li>
+            <Link to="/air-conditioners">Ar-condicionados</Link>
+          </li>
         </ul>
       </nav>
     </header>
