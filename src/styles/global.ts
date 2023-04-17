@@ -30,7 +30,6 @@ export const GlobalStyle = createGlobalStyle`
   main {
     margin: 0 64px;
     min-height: calc(100vh - 128px);
-
     display: flex;
     flex-direction: column;
     align-items: center;

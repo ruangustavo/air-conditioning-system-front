@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import { AirConditioner } from "../../components/AirConditioner";
-import { API_AIR_CONDITIONERS, API_URL } from "../../utils/constants";
-import styles from "./styles.module.css";
+import { API_AIR_CONDITIONERS } from "../../utils/constants";
+import { Container } from "../../pages/Home/styles";
 
 interface AirConditionerResponse {
   id: number;
@@ -27,7 +27,7 @@ export function Home() {
   }
 
   return (
-    <section className={styles.container}>
+    <Container>
       {airConditioners?.map((airConditioner) => (
         <AirConditioner
           key={airConditioner.id}
@@ -36,6 +36,6 @@ export function Home() {
           model={airConditioner.model}
         />
       ))}
-    </section>
+    </Container>
   );
 }

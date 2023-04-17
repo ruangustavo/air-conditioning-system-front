@@ -3,12 +3,12 @@ import axios from "axios";
 import { FormEvent } from "react";
 import { useMutation } from "react-query";
 import { FormContainer } from "../../components/FormContainer";
+import { InputButton } from "../../components/InputButton";
+import { InputContainer } from "../../components/InputContainer";
+import { InputField } from "../../components/InputField";
+import { InputLabel } from "../../components/InputLabel";
 import { queryClient } from "../../services/queryClient";
 import { API_AIR_CONDITIONERS } from "../../utils/constants";
-import { InputField } from "../../components/InputField";
-import { InputContainer } from "../../components/InputContainer";
-import { InputLabel } from "../../components/InputLabel";
-import { InputButton } from "../../components/InputButton";
 
 export function AirConditioner() {
   function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
