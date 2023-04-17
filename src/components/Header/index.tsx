@@ -1,22 +1,22 @@
-import styles from "./styles.module.css";
+import { LinkContainer, LinkItem, Title, Container } from "./styles";
 import { Link } from "react-router-dom";
 
 export function Header() {
   return (
-    <header className={styles.header}>
-      <h1>
+    <Container>
+      <Title>
         <Link to="/">Projeto IOT</Link>
-      </h1>
+      </Title>
       <nav>
-        <ul>
-          <li>
+        <LinkContainer>
+          <LinkItem>
             <Link to="/room">Salas</Link>
-          </li>
-          <li>
+          </LinkItem>
+          <LinkItem>
             <Link to="/air-conditioners">Ar-condicionados</Link>
-          </li>
-        </ul>
+          </LinkItem>
+        </LinkContainer>
       </nav>
-    </header>
+    </Container>
   );
 }

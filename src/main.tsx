@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Root } from "./pages/root";
+import { AirConditioner } from "./pages/AirConditioner";
 import { Home } from "./pages/Home";
 import { Room } from "./pages/Room";
-import { AirConditioner } from "./pages/AirConditioner";
+import { Root } from "./pages/root";
+
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./styles/global";
 
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "./services/queryClient";
+import { defaultTheme } from "./styles/themes/default";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +38,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <ThemeProvider theme={defaultTheme}>
+        <RouterProvider router={router} />
+        <GlobalStyle />
+      </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );
