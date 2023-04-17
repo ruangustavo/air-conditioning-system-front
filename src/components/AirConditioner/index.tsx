@@ -1,9 +1,9 @@
 import { Power } from "@phosphor-icons/react";
-import styles from "./styles.module.css";
 
 import { MouseEventHandler, useState } from "react";
 import axios from "axios";
 import { API_AIR_CONDITIONERS } from "../../utils/constants";
+import { ButtonToggle, Container, TitleContainer } from "./styles";
 
 interface AirConditionerProps {
   id: number;
@@ -32,20 +32,14 @@ export function AirConditioner({ id, brand, model }: AirConditionerProps) {
   }
 
   return (
-    <article
-      className={`${styles.container} ${
-        airConditionerState
-          ? styles["container--toggled"]
-          : styles["container--untoggled"]
-      }`}
-    >
-      <div className={styles.room}>
+    <Container isToggled={airConditionerState}>
+      <TitleContainer>
         <h2>{`Ar-condicionado ${id}`}</h2>
-        <button onClick={handleAirConditionerState}>
-          <Power className={styles.room__powerIcon} size={32} />
-        </button>
-      </div>
+        <ButtonToggle onClick={handleAirConditionerState}>
+          <Power size={32} />
+        </ButtonToggle>
+      </TitleContainer>
       <p>{`Ar-condicionado da marca "${brand}" e modelo "${model}".`}</p>
-    </article>
+    </Container>
   );
 }

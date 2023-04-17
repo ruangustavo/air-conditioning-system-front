@@ -3,6 +3,6 @@ export const defaultTheme = {
     white: "#ffffff",
     gray: "#f0f2f5",
     green: "#16a34a",
-    red: "dc2626",
+    red: "#dc2626",
   },
 };
