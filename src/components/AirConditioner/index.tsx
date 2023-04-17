@@ -1,18 +1,34 @@
 import { Power } from "@phosphor-icons/react";
 import styles from "./styles.module.css";
 
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
+import axios from "axios";
+import { API_AIR_CONDITIONERS } from "../../utils/constants";
 
 interface AirConditionerProps {
-  room: string;
-  toggled: boolean;
+  id: number;
+  brand: string;
+  model: string;
 }
 
-export function AirConditioner({ room, toggled }: AirConditionerProps) {
-  const [airConditionerState, setAirConditionerState] = useState(toggled);
+export function AirConditioner({ id, brand, model }: AirConditionerProps) {
+  const [airConditionerState, setAirConditionerState] = useState(false);
 
-  function handleAirConditionerState() {
+  const handleAirConditionerState: MouseEventHandler<HTMLButtonElement> = (
+    event
+  ) => {
+    event.preventDefault();
     setAirConditionerState(!airConditionerState);
+    toggleAirConditionerState();
+  };
+
+  async function toggleAirConditionerState() {
+    const data = { state: !airConditionerState };
+    await axios
+      .put(`${API_AIR_CONDITIONERS}/${id}/state`, data)
+      .then((response) => {
+        console.log(response);
+      });
   }
 
   return (
@@ -24,12 +40,12 @@ export function AirConditioner({ room, toggled }: AirConditionerProps) {
       }`}
     >
       <div className={styles.room}>
-        <h2>{room}</h2>
+        <h2>{`Ar-condicionado ${id}`}</h2>
         <button onClick={handleAirConditionerState}>
           <Power className={styles.room__powerIcon} size={32} />
         </button>
       </div>
-      <p>Ar-condicionado da sala 14.</p>
+      <p>{`Ar-condicionado da marca "${brand}" e modelo "${model}".`}</p>
     </article>
   );
 }

@@ -2,11 +2,19 @@ import { House, MapPin } from "@phosphor-icons/react";
 import { FormEvent } from "react";
 import { Form } from "../../components/Form";
 import styles from "../../components/Form/styles.module.css";
+import axios from "axios";
 
 export function Room() {
+  axios.defaults.baseURL = "http://localhost:3333";
+
   function handleFormSubmit(event: FormEvent) {
     event.preventDefault();
-    console.log(`Form submitted: ${event.target}`);
+    const data = new FormData(event.currentTarget as HTMLFormElement);
+    const response = axios.post("rooms", {
+      name: data.get("name"),
+      number: data.get("number"),
+    });
+    return response;
   }
 
   return (
@@ -37,7 +45,9 @@ export function Room() {
             placeholder="Digite o número da sala..."
           />
         </div>
-        <button type="submit">Adicionar</button>
+        <button type="submit" disabled>
+          Adicionar
+        </button>
       </form>
     </Form>
   );

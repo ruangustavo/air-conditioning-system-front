@@ -1,51 +1,41 @@
+import axios from "axios";
+import { useQuery } from "react-query";
 import { AirConditioner } from "../../components/AirConditioner";
+import { API_AIR_CONDITIONERS, API_URL } from "../../utils/constants";
 import styles from "./styles.module.css";
 
+interface AirConditionerResponse {
+  id: number;
+  brand: string;
+  model: string;
+}
+
 export function Home() {
-  const airConditioners = [
-    {
-      id: 1,
-      room: "Sala 1",
-      toggled: false,
-    },
-    {
-      id: 2,
-      room: "Sala 2",
-      toggled: true,
-    },
-    {
-      id: 3,
-      room: "Sala 3",
-      toggled: false,
-    },
-    {
-      id: 4,
-      room: "Sala 4",
-      toggled: true,
-    },
-    {
-      id: 5,
-      room: "Sala 5",
-      toggled: false,
-    },
-    {
-      id: 6,
-      room: "Sala 6",
-      toggled: true,
-    },
-  ];
+  async function fetchAirConditioners() {
+    const { data } = await axios.get(API_AIR_CONDITIONERS);
+    return data;
+  }
+
+  const { data: airConditioners, isLoading } = useQuery<
+    AirConditionerResponse[]
+  >("airConditioners", fetchAirConditioners, {
+    staleTime: 60 * 1000,
+  });
+
+  if (isLoading) {
+    return <p>Carregando ar-condicionados...</p>;
+  }
 
   return (
     <section className={styles.container}>
-      {airConditioners.map((airConditioner) => {
-        return (
-          <AirConditioner
-            key={airConditioner.id}
-            room={airConditioner.room}
-            toggled={airConditioner.toggled}
-          />
-        );
-      })}
+      {airConditioners?.map((airConditioner) => (
+        <AirConditioner
+          key={airConditioner.id}
+          id={airConditioner.id}
+          brand={airConditioner.brand}
+          model={airConditioner.model}
+        />
+      ))}
     </section>
   );
 }

@@ -8,6 +8,9 @@ import { Home } from "./pages/Home";
 import { Room } from "./pages/Room";
 import { AirConditioner } from "./pages/AirConditioner";
 
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "./services/queryClient";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,6 +34,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>
 );

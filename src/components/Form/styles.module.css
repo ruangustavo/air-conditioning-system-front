@@ -33,6 +33,11 @@
   font-size: 14px;
 }
 
+.container select:disabled,
+input:disabled {
+  cursor: not-allowed;
+}
+
 .container button {
   text-align: center;
   font-weight: 700;
@@ -43,9 +48,14 @@
   background-color: #bf0e1d;
 }
 
-.container button:hover {
+.container button:hover:not(:disabled) {
   background-color: #bb3944;
   transition: 0.2s;
+}
+
+.container button:disabled {
+  background-color: #a39090;
+  cursor: not-allowed;
 }
 
 .input {
@@ -58,4 +68,8 @@
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.container small {
+  color: #bf0e1d;
 }
