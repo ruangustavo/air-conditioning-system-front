@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useQuery } from "react-query";
-import { AirConditioner } from "../../components/AirConditioner";
-import { API_AIR_CONDITIONERS } from "../../utils/constants";
-import { Container } from "../../pages/Home/styles";
+import { AirConditioner } from "@/components/molecules/AirConditioner";
+import { API_AIR_CONDITIONERS } from "@/utils/constants";
+import { Container } from "@/pages/Home/styles";
 
 interface AirConditionerResponse {
   id: number;

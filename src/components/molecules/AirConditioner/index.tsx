@@ -2,7 +2,7 @@ import { Power } from "@phosphor-icons/react";
 
 import { MouseEventHandler, useState } from "react";
 import axios from "axios";
-import { API_AIR_CONDITIONERS } from "../../utils/constants";
+import { API_AIR_CONDITIONERS } from "../../../utils/constants";
 import { ButtonToggle, Container, TitleContainer } from "./styles";
 
 interface AirConditionerProps {

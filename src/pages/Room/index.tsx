@@ -1,11 +1,11 @@
 import { House, MapPin } from "@phosphor-icons/react";
 import { FormEvent } from "react";
-import { FormContainer } from "../../components/FormContainer";
+import { FormContainer } from "@/components/atoms/FormContainer";
 import axios from "axios";
-import { InputContainer } from "../../components/InputContainer";
-import { InputLabel } from "../../components/InputLabel";
-import { InputField } from "../../components/InputField";
-import { InputButton } from "../../components/InputButton";
+import { InputContainer } from "@/components/atoms/InputContainer";
+import { InputLabel } from "@/components/atoms/InputLabel";
+import { InputField } from "@/components/atoms/InputField";
+import { InputButton } from "@/components/atoms/InputButton";
 
 export function Room() {
   axios.defaults.baseURL = "http://localhost:3333";

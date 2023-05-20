@@ -1,4 +1,4 @@
-import { Header } from "../components/Header";
+import { Header } from "@/components/organisms/Header";
 import { Outlet } from "react-router-dom";
 
 export function Root() {

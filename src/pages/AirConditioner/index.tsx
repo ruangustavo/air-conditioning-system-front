@@ -2,13 +2,13 @@ import { Fan } from "@phosphor-icons/react";
 import axios from "axios";
 import { FormEvent } from "react";
 import { useMutation } from "react-query";
-import { FormContainer } from "../../components/FormContainer";
-import { InputButton } from "../../components/InputButton";
-import { InputContainer } from "../../components/InputContainer";
-import { InputField } from "../../components/InputField";
-import { InputLabel } from "../../components/InputLabel";
-import { queryClient } from "../../services/queryClient";
-import { API_AIR_CONDITIONERS } from "../../utils/constants";
+import { FormContainer } from "@/components/atoms/FormContainer";
+import { InputButton } from "@/components/atoms/InputButton";
+import { InputContainer } from "@/components/atoms/InputContainer";
+import { InputField } from "@/components/atoms/InputField";
+import { InputLabel } from "@/components/atoms/InputLabel";
+import { queryClient } from "@/services/queryClient";
+import { API_AIR_CONDITIONERS } from "@/utils/constants";
 
 export function AirConditioner() {
   function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
