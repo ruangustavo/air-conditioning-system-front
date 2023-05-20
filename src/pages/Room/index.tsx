@@ -1,23 +1,23 @@
+import { api } from "@/api";
+import { FormContainer } from "@/components/atoms/FormContainer";
+import { InputButton } from "@/components/atoms/InputButton";
+import { InputContainer } from "@/components/atoms/InputContainer";
+import { InputField } from "@/components/atoms/InputField";
+import { InputLabel } from "@/components/atoms/InputLabel";
 import { House, MapPin } from "@phosphor-icons/react";
 import { FormEvent } from "react";
-import { FormContainer } from "@/components/atoms/FormContainer";
-import axios from "axios";
-import { InputContainer } from "@/components/atoms/InputContainer";
-import { InputLabel } from "@/components/atoms/InputLabel";
-import { InputField } from "@/components/atoms/InputField";
-import { InputButton } from "@/components/atoms/InputButton";
 
 export function Room() {
-  axios.defaults.baseURL = "http://localhost:3333";
-
-  function handleFormSubmit(event: FormEvent) {
+  async function handleFormSubmit(event: FormEvent) {
     event.preventDefault();
     const data = new FormData(event.currentTarget as HTMLFormElement);
-    const response = axios.post("rooms", {
+
+    const createRoomResponse = await api.post("rooms", {
       name: data.get("name"),
       number: data.get("number"),
     });
-    return response;
+    
+    return createRoomResponse;
   }
 
   return (

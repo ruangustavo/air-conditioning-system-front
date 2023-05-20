@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import { AirConditioner } from "@/components/molecules/AirConditioner";
-import { API_AIR_CONDITIONERS } from "@/utils/constants";
+import { api } from "@/api";
 import { Container } from "@/pages/Home/styles";
 
 interface AirConditionerResponse {
@@ -12,7 +12,7 @@ interface AirConditionerResponse {
 
 export function Home() {
   async function fetchAirConditioners() {
-    const { data } = await axios.get(API_AIR_CONDITIONERS);
+    const { data } = await api.get('air-conditioners');
     return data;
   }
 

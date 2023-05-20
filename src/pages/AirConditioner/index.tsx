@@ -8,7 +8,7 @@ import { InputContainer } from "@/components/atoms/InputContainer";
 import { InputField } from "@/components/atoms/InputField";
 import { InputLabel } from "@/components/atoms/InputLabel";
 import { queryClient } from "@/services/queryClient";
-import { API_AIR_CONDITIONERS } from "@/utils/constants";
+import { API_AIR_CONDITIONERS } from "@/api/constants";
 
 export function AirConditioner() {
   function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
