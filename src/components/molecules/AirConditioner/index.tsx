@@ -1,9 +1,8 @@
 import { Power } from "@phosphor-icons/react";
 
 import { MouseEventHandler, useState } from "react";
-import axios from "axios";
-import { API_AIR_CONDITIONERS } from "../../../api/constants";
 import { ButtonToggle, Container, TitleContainer } from "./styles";
+import { api } from "@/api";
 
 interface AirConditionerProps {
   id: number;
@@ -24,8 +23,8 @@ export function AirConditioner({ id, brand, model }: AirConditionerProps) {
 
   async function toggleAirConditionerState() {
     const data = { state: !airConditionerState };
-    await axios
-      .put(`${API_AIR_CONDITIONERS}/${id}/state`, data)
+    await api
+      .put(`${id}/state`, data)
       .then((response) => {
         console.log(response);
       });

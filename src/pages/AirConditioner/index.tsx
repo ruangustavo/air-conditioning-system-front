@@ -8,7 +8,7 @@ import { InputContainer } from "@/components/atoms/InputContainer";
 import { InputField } from "@/components/atoms/InputField";
 import { InputLabel } from "@/components/atoms/InputLabel";
 import { queryClient } from "@/services/queryClient";
-import { API_AIR_CONDITIONERS } from "@/api/constants";
+import { api } from "@/api";
 
 export function AirConditioner() {
   function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
@@ -19,7 +19,7 @@ export function AirConditioner() {
 
   const roomMutation = useMutation(async (formData: FormData) => {
     const formDataObject = Object.fromEntries(formData);
-    const { data } = await axios.post(API_AIR_CONDITIONERS, formDataObject);
+    const { data } = await api.post('air-conditioners', formDataObject);
     return data;
   });
 
